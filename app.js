@@ -1,5 +1,6 @@
 const numbers = document.querySelectorAll(".options button.number")
 const typeDisplay = document.querySelector(".type")
+const typeDisplayPara = document.querySelector(".type p")
 
 
 numbers.forEach(number=>{
@@ -8,12 +9,13 @@ numbers.forEach(number=>{
 let number 
 function showNumber()
 {
-    let typeDisplayPara = document.createElement("p")
+    number = Number(this.textContent)
+    typeDisplayPara.append(number)
     typeDisplayPara.classList.add("style-num")
-   number = Number(this.textContent)
+    
+   
    console.log(number)
-   typeDisplayPara.innerText=number
-   typeDisplay.append(typeDisplayPara)
+  
    
 
 }
