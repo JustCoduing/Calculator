@@ -12,12 +12,6 @@ function showNumber()
     number = Number(this.textContent)
     typeDisplayPara.append(number)
     typeDisplayPara.classList.add("style-num")
-    
-   
-   console.log(number)
-  
-   
-
 }
 
 
@@ -33,4 +27,5 @@ operator.addEventListener("click",showOper)
 function showOper()
 {
     console.log(this.textContent)
+    typeDisplayPara.append(this.textContent)
 }
