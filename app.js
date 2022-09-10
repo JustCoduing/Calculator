@@ -34,6 +34,7 @@ function showNumber()
 
 
 clear.addEventListener("click",clearDisplay)
+let strArray
 
 function clearDisplay()
 {
@@ -42,20 +43,6 @@ function clearDisplay()
     str=""
 
 }
-
-
-/*deleteButton.addEventListener("click",deletePrevNumber)
-
-
-
-
-function deletePrevNumber()
-{
-    typeDisplayPara.removeChild(typeDisplayPara.lastChild)
-    numberArray.pop()
-    console.log(numberArray)
-    
-}*/
 
 
 function add(arr)
@@ -72,7 +59,13 @@ function mult(arr)
 }
 function div(arr)
 {
-    return arr.reduce((num1,num2)=>num1/num2)
+    
+    let result = arr.reduce((num1,num2)=>num1/num2)
+    if(result===Infinity)
+    {
+        return "You Can't Divide By Zero"
+    }
+    else return result
 }
 
 function operate(op,arr)
@@ -110,6 +103,7 @@ function operate(op,arr)
 }
 
 equalButton.addEventListener("click",showResult)
+deleteButton.addEventListener("click",clearResultAndDisplayNewResult)
 
 function showResult()
 {
@@ -117,7 +111,7 @@ function showResult()
     
     console.log(str)
     let regEx = /[+\-\×÷]/g
-    let strArray = str.split(" ")
+     strArray = str.split(" ")
     console.log(strArray)
     let getOperator = ""
     for(let i = 0; i<strArray.length;i++)
@@ -138,14 +132,38 @@ function showResult()
         }
     }
     console.log(strArray)
+   
 
-    let numberArray = strArray.map(item=>Number(item))
-    console.log(numberArray)
+    let numberArray = strArray.filter(item=>item!==(''))
+    let operateNumberArray = numberArray.map(item=>Number(item))
+    console.log(operateNumberArray)
+    
 
-    console.log(operate(getOperator,numberArray))
+    let calculate = operate(getOperator,operateNumberArray)
+    console.log(calculate)
     
     
+    resultDisplayPara.append(calculate)
+    resultDisplayPara.classList.add("result-style")
     
+ 
+    
+}
+
+
+deleteButton.addEventListener("click",delValue)
+
+function delValue()
+{
+    typeDisplayPara.lastChild.remove()
+    str=typeDisplayPara.textContent
+    console.log(str)
+    
+}
+
+function clearResultAndDisplayNewResult()
+{
+    console.log(resultDisplayPara.firstChild.remove())
 }
 
 
