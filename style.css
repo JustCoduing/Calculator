@@ -3,6 +3,7 @@
     padding:0;
     margin:0;
     box-sizing: border-box;
+    font-family:sans-serif;
 }
 body 
 {
@@ -39,6 +40,7 @@ body
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
+    
 }
 
 .delete-container 
@@ -171,11 +173,19 @@ button
 .style-num 
 {
     color: white;
-    font-size: 15px;
+    font-size: 20px;
+    transition-delay: all 2s ease
 }
 
 .result-style 
 {
-    font-size:25px;
+    font-size:27.5px;
     color: white;
+    
+    
+}
+
+.style-error
+{
+   margin: 10px;
 }

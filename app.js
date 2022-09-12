@@ -41,6 +41,7 @@ function clearDisplay()
     typeDisplayPara.textContent=" "
     resultDisplayPara.textContent=" "
     str=""
+    clickCounter=0
 
 }
 
@@ -61,7 +62,7 @@ function div(arr)
 {
     
     let result = arr.reduce((num1,num2)=>num1/num2)
-    if(result===Infinity)
+    if(result===Infinity || Number.isNaN(result))
     {
         return "You Can't Divide By Zero"
     }
@@ -104,11 +105,12 @@ function operate(op,arr)
 
 equalButton.addEventListener("click",showResult)
 deleteButton.addEventListener("click",clearResultAndDisplayNewResult)
+let clickCounter = 0
 
 function showResult()
 {
    
-    
+    clickCounter++
     console.log(str)
     let regEx = /[+\-\×÷]/g
      strArray = str.split(" ")
@@ -146,8 +148,16 @@ function showResult()
     resultDisplayPara.append(calculate)
     resultDisplayPara.classList.add("result-style")
     
- 
+    if(clickCounter>1)
+    {
+        
+        resultDisplayPara.replaceChildren(calculate)
+    }
     
+}
+function test()
+{
+    console.log("hello")
 }
 
 
