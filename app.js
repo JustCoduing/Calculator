@@ -19,19 +19,15 @@ let str=""
 function showNumber()
 {
     str+=this.textContent
+    let regEx= /[+\-\×÷]/g
+    
     typeDisplayPara.append(this.textContent)
     typeDisplayPara.classList.add("style-num")
+    
+   
+    
 
 }
-
-
-
-
-
-
-
-
-
 
 clear.addEventListener("click",clearDisplay)
 let strArray
@@ -99,12 +95,17 @@ function operate(op,arr)
             return div(arr)
         
     }
-
     
+   
 }
 
-equalButton.addEventListener("click",showResult)
-deleteButton.addEventListener("click",clearResultAndDisplayNewResult)
+equalButton.addEventListener("click",()=>{
+    showResult()
+})
+
+    
+
+// deleteButton.addEventListener("click",clearResultAndDisplayNewResult)
 let clickCounter = 0
 
 function showResult()
@@ -153,6 +154,16 @@ function showResult()
         
         resultDisplayPara.replaceChildren(calculate)
     }
+    if(strArray.length<=1)
+    {
+        resultDisplayPara.textContent=""
+    }
+    if(strArray[0]=="" || strArray[strArray.length-1]=="")
+    {
+        resultDisplayPara.textContent=""
+    }
+
+   
     
 }
 function test()
@@ -171,10 +182,13 @@ function delValue()
     
 }
 
-function clearResultAndDisplayNewResult()
-{
-    console.log(resultDisplayPara.firstChild.remove())
-}
+
+
+// function clearResultAndDisplayNewResult()
+// {
+//     // console.log(resultDisplayPara.firstChild.remove())
+//     resultDisplayPara.remove(resultDisplayPara.firstChild())
+// }
 
 
 

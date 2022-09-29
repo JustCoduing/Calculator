@@ -109,45 +109,28 @@ button
     
 }
 
-.operator
-{
-    background-color:royalblue;
-    font-size: 18px;
-    color: white;
-    transition: all .1s cubic-bezier(0.05,-1.68, 0.74, 3.41);
-}
 
-.operator:hover 
-{
-    background-color: white;
-    color: royalblue;
-    transform: scale(1);
-    border: solid .5px royalblue;
-    
-}
 
-.operator:active
-{
-    transform: scale(.95);
-}
+
 
 
 .number,.equal,.dot
 {
    font-weight: 500;
    font-size: 20px;
-   transition: all .1s cubic-bezier(0.05,-1.68, 0.74, 3.41);
+   transition: all .1s cubic-bezier(0, 0.01, 0, 1.92);;
+   box-shadow: 0 7px lightblue;
 }
 
 .number:hover,.equal:hover,.dot:hover
 {
-    background-color:salmon;
-    color: white;
+    transform: scale(1.008);
 
 }
 .number:active,.equal:active,.dot:active
 {
-    transform: scale(.95);
+    box-shadow: none; 
+     transform: translateY(7px); 
     
 }
 
